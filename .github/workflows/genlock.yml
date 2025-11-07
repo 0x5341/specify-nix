@@ -9,7 +9,7 @@ jobs:
   run-genlock:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       id-token: write
     steps:
       - name: Checkout repository
@@ -47,3 +47,13 @@ jobs:
             /nix
             ~/.cache/nix
             /root/.cache/nix
+
+      - name: Commit & push generated changes (if any)
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: 'github-actions[bot]'
+          author_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          message: "chore: 自動生成ファイルを更新 (genlock実行)"
+          add: "."
+          branch: main
+          push: true
