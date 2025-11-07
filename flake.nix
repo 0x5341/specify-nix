@@ -90,7 +90,6 @@
           };
         };
         packages = {
-          a = add-file ./uv.lock "uv.lock" "${specify}";
           default = pythonSets.mkVirtualEnv "specify" workspace.deps.default;
         };
       }
