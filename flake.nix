@@ -81,6 +81,11 @@
                 overlay
               ]
             );
+        
+        pick-bin = drv_path: name: pkgs.runCommand "pick-bin" {} ''
+          mkdir -p $out/bin
+          ln -s ${drv_path} $out/bin/${name}
+        '';
       in
       {
         apps = {
@@ -90,7 +95,7 @@
           };
         };
         packages = {
-          default = pythonSets.mkVirtualEnv "specify" workspace.deps.default;
+          default = pick-bin "${pythonSets.mkVirtualEnv "specify" workspace.deps.default}/bin/specify" "specify";
         };
       }
     );
