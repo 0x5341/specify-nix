@@ -26,7 +26,7 @@ jobs:
 
       - name: Install Determinate Nix
         # Pin to the latest Determinate Nix Action v3.x release for reproducibility
-        uses: DeterminateSystems/determinate-nix-action@v3.12.2
+        uses: DeterminateSystems/determinate-nix-action@v3.13.1
 
       - name: Check flake (optional)
         # Use flake-checker to validate flake.lock and inputs. Pin to latest major tag.
