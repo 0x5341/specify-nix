@@ -13,7 +13,7 @@ jobs:
       id-token: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v5.0.1
 
       - name: Restore Nix store cache
         uses: nix-community/cache-nix-action@v6.1.3
